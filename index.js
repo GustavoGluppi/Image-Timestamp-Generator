@@ -208,7 +208,6 @@ function saveFormCookies() {
 
   for (const child of settingsForm.children) {
     if (child.nodeName !== "INPUT" && child.nodeName !== "SELECT") continue;
-    if (!child.value) continue;
 
     document.cookie =
       child.id +
