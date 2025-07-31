@@ -104,6 +104,12 @@ textarea {
 #map {
   height: 280px;
   width: 500px;
+  border: 2px solid var(--button-bg-color);
+  border-radius: 8px;
+}
+
+#map:focus {
+  outline: none;
 }
 
 #cepDisplay {
@@ -184,7 +190,7 @@ button:hover {
 }
 
 button i {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .dateDiv {
@@ -227,6 +233,35 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 
 .file-input label:hover {
   background-color: var(--file-input-hover-bg-color);
+}
+
+canvas {
+  border: 1px dashed var(--font-color);
+  max-width: 100%;
+}
+
+#canvasResult .section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#downloadLink {
+  display: none;
+}
+
+#imageData {
+  display: none;
+}
+
+span {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+#selectedText {
+  display: none;
 }
 
 .textareaInput {

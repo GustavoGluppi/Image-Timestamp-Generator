@@ -127,9 +127,9 @@
             <div class="inputDiv">
               <label for="cep">CEP</label>
               <input id="cep" type="text" />
-              <br />
-              <button type="button" id="searchCepButton">Buscar CEP</button>
             </div>
+            <br />
+            <button type="button" id="searchCepButton">Buscar CEP</button>
           </div>
 
           <div id="mapDisplay">
@@ -167,6 +167,7 @@
         <div class="inputDiv file-input">
           <label for="fileSelector">Escolha a imagem</label>
           <input id="fileSelector" type="file" accept=".png,.jpg,.jpeg" />
+          <span id="selectedText">Imagem carregada!</span>
         </div>
 
         <div class="buttonDiv">
@@ -178,23 +179,26 @@
       </div>
     </section>
 
-    <br />
-    <br />
+    <section id="canvasResult">
+      <div class="section-header">
+        <i class="fa-solid fa-image"></i>
+        <h3>RESULTADO</h3>
+      </div>
 
-    <br />
-    <br />
+      <div class="section-content">
+        <div class="canvaDiv">
+          <canvas id="canvas-image" height="800px" width="450px">
+            Ocorreu um erro!
+          </canvas>
+        </div>
 
-    <canvas
-      id="canvas-image"
-      height="800px"
-      width="450px"
-      style="border: 1px solid #000000"
-    >
-      Ocorreu um erro!
-    </canvas>
+        <button type="button" id="downloadLink" download="image.png">
+          <i class="fa-solid fa-arrow-down"></i>
+          Baixar Imagem
+        </button>
 
-    <br />
-
-    <a id="downloadLink" download="image.png" href="">Baixar Imagem</a>
+        <a id="imageData" href=""></a>
+      </div>
+    </section>
   </body>
 </html>

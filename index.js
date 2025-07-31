@@ -75,15 +75,19 @@ function createImage() {
     };
 
     reader.readAsDataURL(file);
+
+    document.getElementById("downloadLink").style.display = "inline";
   }
 }
 
 function downloadCanvas() {
   const canvas = document.getElementById("canvas-image");
-
   const imgData = canvas.toDataURL("image/png", 1);
-  window.location.href = imgData;
-  document.getElementById("link").href = imgData;
+
+  const link = document.getElementById("imageData");
+  link.href = imgData;
+  link.download = "result.png";
+  link.click();
 }
 
 function saveFormCookies() {
@@ -191,6 +195,14 @@ function fillFormWithValuesString(valuesString) {
   }
 }
 
+function toggleInputSpamValue(e) {
+  if (e.target.files[0]) {
+    document.getElementById("selectedText").style.display = "inline";
+  } else {
+    document.getElementById("selectedText").style.display = "none";
+  }
+}
+
 document
   .getElementById("importStyleButton")
   .addEventListener("click", prepareStyleString);
@@ -212,5 +224,8 @@ document
 document
   .getElementById("searchBy")
   .addEventListener("change", toggleSearchByView);
+document
+  .getElementById("fileSelector")
+  .addEventListener("change", toggleInputSpamValue);
 
 window.onload = fillFormWithValuesString(document.cookie);
