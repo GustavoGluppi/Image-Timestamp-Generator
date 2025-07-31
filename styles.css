@@ -264,6 +264,19 @@ span {
   display: none;
 }
 
+header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 10px 25px 20px;
+}
+
+header i {
+  font-size: 30px;
+}
+
 .textareaInput {
   display: none;
 }
