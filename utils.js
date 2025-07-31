@@ -66,3 +66,42 @@ export function fillFormWithValuesString(valuesString) {
     child.value = valuesJson[child.id];
   }
 }
+
+export const statesAcronyms = {
+  piaui: "PI",
+  maranhao: "MA",
+  "espirito santo": "ES",
+  rondonia: "RO",
+  acre: "AC",
+  amazonas: "AM",
+  roraima: "RR",
+  para: "PA",
+  amapa: "AP",
+  tocantins: "TO",
+  alagoas: "AL",
+  parana: "PR",
+  "santa catarina": "SC",
+  "mato grosso do sul": "MS",
+  sergipe: "SE",
+  "mato grosso": "MT",
+  "rio grande do sul": "RS",
+  "rio de janeiro": "RJ",
+  "minas gerais": "MG",
+  "rio grande do norte": "RN",
+  "distrito federal": "DF",
+  paraiba: "PB",
+  pernambuco: "PE",
+  bahia: "BA",
+  goias: "GO",
+  "sao paulo": "SP",
+  ceara: "CE",
+};
+
+export function getStateAcronym(state) {
+  const formatedState = state
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  return statesAcronyms[formatedState] || state;
+}

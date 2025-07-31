@@ -20,13 +20,13 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="./map.js" async defer></script>
+    <script type="module" src="./map.js" async defer></script>
   </head>
   <body>
     <div id="timestampSettings">
       <textarea id="importStyleText"></textarea>
       <br />
-      <button id="importStyleButton">Importar estilo</button>
+      <button type="button" id="importStyleButton">Importar estilo</button>
       <br />
       <br />
 
@@ -85,12 +85,35 @@
       <br />
       <br />
 
-      <label for="cep">CEP</label>
+      <label for="searchBy"
+        >Escolha a forma como deseja escolher um endereço</label
+      >
       <br />
-      <input id="cep" type="text" />
-      <button type="button" id="searchCepButton">Buscar CEP</button>
+      <select id="searchBy">
+        <option value="cep">CEP</option>
+        <option value="map">Mapa</option>
+      </select>
       <br />
       <br />
+
+      <div id="cepDisplay" style="display: block">
+        <label for="cep">CEP</label>
+        <br />
+        <input id="cep" type="text" />
+        <button type="button" id="searchCepButton">Buscar CEP</button>
+        <br />
+        <br />
+      </div>
+
+      <div id="mapDisplay" style="display: none">
+        <div id="map"></div>
+        <br />
+        <button id="chooseLocationButton" type="button">
+          Usar esse endereço
+        </button>
+        <br />
+        <br />
+      </div>
 
       <label for="street">Rua</label>
       <br />
@@ -117,10 +140,6 @@
       <br />
 
       <input id="fileSelector" type="file" accept=".png,.jpg,.jpeg" />
-      <br />
-      <br />
-
-      <div id="map"></div>
     </div>
 
     <br />
@@ -142,6 +161,6 @@
 
     <br />
 
-    <a id="link" download="image.png" href="">Baixar Imagem</a>
+    <a id="downloadLink" download="image.png" href="">Baixar Imagem</a>
   </body>
 </html>

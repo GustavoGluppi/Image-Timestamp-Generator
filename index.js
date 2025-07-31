@@ -128,6 +128,18 @@ function copyStyleString() {
   navigator.clipboard.write([clipboardItem]);
 }
 
+function toggleSearchByView(e) {
+  const value = e.target.value;
+
+  if (value == "cep") {
+    document.getElementById("mapDisplay").style.display = "none";
+    document.getElementById("cepDisplay").style.display = "block";
+  } else if (value == "map") {
+    document.getElementById("cepDisplay").style.display = "none";
+    document.getElementById("mapDisplay").style.display = "block";
+  }
+}
+
 document
   .getElementById("importStyleButton")
   .addEventListener("click", prepareStyleString);
@@ -143,6 +155,11 @@ document
 document
   .getElementById("generateImageButton")
   .addEventListener("click", createImage);
-document.getElementById("link").addEventListener("click", downloadCanvas);
+document
+  .getElementById("downloadLink")
+  .addEventListener("click", downloadCanvas);
+document
+  .getElementById("searchBy")
+  .addEventListener("change", toggleSearchByView);
 
 window.onload = fillFormWithValuesString(document.cookie);
