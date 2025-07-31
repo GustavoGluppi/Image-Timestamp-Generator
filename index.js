@@ -1,4 +1,4 @@
-import { reduce, formatDate, fillFormWithValuesString } from "./utils.js";
+import { reduce, formatDate } from "./utils.js";
 import { addTextToCanvas } from "./canvas.js";
 
 function getAddress() {
@@ -87,20 +87,36 @@ function downloadCanvas() {
 }
 
 function saveFormCookies() {
-  const settingsForm = document.getElementById("timestampSettings");
+  const settingsForm = document
+    .getElementById("timestampSettings")
+    .querySelector(".section-content");
 
-  for (const child of settingsForm.children) {
-    if (child.nodeName !== "INPUT" && child.nodeName !== "SELECT") continue;
-    if (!child.value) continue;
+  const colorDivChildren = settingsForm.querySelector(".colorDiv").children;
+  const textDivChildren = settingsForm.querySelector(".textDiv").children;
 
+  const cookiesJson = {};
+
+  for (const child of colorDivChildren) {
+    const input = child.querySelector("input") || child.querySelector("select");
+
+    if (input.nodeName !== "INPUT" && input.nodeName !== "SELECT") continue;
+    if (!input.value) continue;
+
+    cookiesJson[input.id] = input.value;
+  }
+
+  for (const child of textDivChildren) {
+    const input = child.querySelector("input") || child.querySelector("select");
+
+    if (input.nodeName !== "INPUT" && input.nodeName !== "SELECT") continue;
+    if (!input.value) continue;
+
+    cookiesJson[input.id] = input.value;
+  }
+
+  for (const [key, value] of Object.entries(cookiesJson)) {
     document.cookie =
-      child.id +
-      "=" +
-      child.value +
-      "; " +
-      "expires=Fri, 31 Dec 9999 23:59:59 GMT" +
-      "; " +
-      "path=/";
+      key + "=" + value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/";
   }
 }
 
@@ -110,14 +126,31 @@ function prepareStyleString() {
 }
 
 function copyStyleString() {
-  const settingsForm = document.getElementById("timestampSettings");
+  const settingsForm = document
+    .getElementById("timestampSettings")
+    .querySelector(".section-content");
+
+  const colorDivChildren = settingsForm.querySelector(".colorDiv").children;
+  const textDivChildren = settingsForm.querySelector(".textDiv").children;
 
   let valuesArray = [];
-  for (const child of settingsForm.children) {
-    if (child.nodeName !== "INPUT" && child.nodeName !== "SELECT") continue;
-    if (!child.value) continue;
 
-    valuesArray.push(child.id + "=" + child.value);
+  for (const child of colorDivChildren) {
+    const input = child.querySelector("input") || child.querySelector("select");
+
+    if (input.nodeName !== "INPUT" && input.nodeName !== "SELECT") continue;
+    if (!input.value) continue;
+
+    valuesArray.push(input.id + "=" + input.value);
+  }
+
+  for (const child of textDivChildren) {
+    const input = child.querySelector("input") || child.querySelector("select");
+
+    if (input.nodeName !== "INPUT" && input.nodeName !== "SELECT") continue;
+    if (!input.value) continue;
+
+    valuesArray.push(input.id + "=" + input.value);
   }
 
   const valuesString = valuesArray.join(";");
@@ -137,6 +170,24 @@ function toggleSearchByView(e) {
   } else if (value == "map") {
     document.getElementById("cepDisplay").style.display = "none";
     document.getElementById("mapDisplay").style.display = "block";
+  }
+}
+
+function fillFormWithValuesString(valuesString) {
+  const valuesArray = valuesString.split(";");
+
+  let valuesJson = {};
+
+  valuesArray.forEach((valueString) => {
+    const key = valueString.split("=")[0].trim();
+    const value = valueString.split("=")[1];
+
+    valuesJson[key] = value;
+  });
+
+  for (const [key, value] of Object.entries(valuesJson)) {
+    const field = document.querySelector(`#${key}`);
+    field.value = value;
   }
 }
 

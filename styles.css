@@ -1,4 +1,234 @@
+:root {
+  --bg-color: #0b0e13;
+  --font-color: #ffffff;
+  --section-border-color: #1f1f1f;
+  --input-bg-color: #0b0e13;
+  --input-hover-border-color: #2c2c2c;
+  --button-bg-color: #193cb8;
+  --button-hover-bg-color: #2d4ab4;
+  --file-input-bg-color: #087416;
+  --file-input-hover-bg-color: #0a861b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: Poppins, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 7px;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  color: var(--font-color) white;
+  font-weight: 600;
+  border: 1px solid var(--section-border-color);
+  cursor: text;
+  transition: border-color 0.3s ease;
+  outline: none;
+  width: 200px;
+  height: 35px;
+}
+
+input:hover {
+  border-color: var(--input-hover-border-color);
+}
+
+input[type="text"] {
+  width: 450px;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  height: 55px;
+  width: 55px;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  outline: none;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: 1px solid var(--font-color);
+  border-radius: 100%;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+select {
+  padding: 7px;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--section-border-color);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  outline: none;
+  height: 35px;
+  width: 220px;
+}
+
+select:hover {
+  border-color: var(--input-hover-border-color);
+}
+
+textarea {
+  padding: 7px;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  color: var(--font-color);
+  font-weight: 600;
+  border: 1px solid var(--section-border-color);
+  cursor: text;
+  width: 400px;
+  height: 80px;
+  resize: none;
+}
+
 #map {
   height: 280px;
   width: 500px;
+}
+
+#cepDisplay {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 60vw;
+  margin: 25px 0vw;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--section-border-color);
+  padding: 40px 25px;
+  border-radius: 16px;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  margin-top: 0;
+  row-gap: 30px;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.section-header i {
+  font-size: 20px;
+}
+
+.colorDiv {
+  display: flex;
+  gap: 25px;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.colorDiv .inputDiv {
+  align-items: center;
+}
+
+.textDiv {
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+button {
+  width: 150px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--button-bg-color);
+  color: var(--font-color);
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+button i {
+  font-size: 10px;
+}
+
+.dateDiv {
+  display: flex;
+}
+
+.addressDiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+.file-input {
+  display: inline-block;
+}
+
+.file-input input[type="file"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.file-input label {
+  display: inline-block;
+  padding: 6px 8px;
+  background-color: var(--file-input-bg-color);
+  color: var(--font-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+}
+
+.file-input label:hover {
+  background-color: var(--file-input-hover-bg-color);
+}
+
+.textareaInput {
+  display: none;
 }

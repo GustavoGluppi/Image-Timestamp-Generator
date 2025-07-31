@@ -47,26 +47,6 @@ export function formatDate(dateString) {
   return finalString;
 }
 
-export function fillFormWithValuesString(valuesString) {
-  const valuesArray = valuesString.split(";");
-
-  let valuesJson = {};
-
-  valuesArray.forEach((valueString) => {
-    const key = valueString.split("=")[0].trim();
-    const value = valueString.split("=")[1];
-
-    valuesJson[key] = value;
-  });
-
-  const settingsForm = document.getElementById("timestampSettings");
-  for (const child of settingsForm.children) {
-    if (child.nodeName !== "INPUT" && child.nodeName !== "SELECT") continue;
-
-    child.value = valuesJson[child.id];
-  }
-}
-
 export const statesAcronyms = {
   piaui: "PI",
   maranhao: "MA",

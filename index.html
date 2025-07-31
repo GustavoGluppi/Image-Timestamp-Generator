@@ -13,6 +13,14 @@
       crossorigin=""
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
 
     <script type="module" src="./index.js"></script>
     <script
@@ -23,129 +31,155 @@
     <script type="module" src="./map.js" async defer></script>
   </head>
   <body>
-    <div id="timestampSettings">
-      <textarea id="importStyleText"></textarea>
-      <br />
-      <button type="button" id="importStyleButton">Importar estilo</button>
-      <br />
-      <br />
-
-      <label for="textColorSelector">Cor do texto</label>
-      <br />
-      <input id="textColorSelector" type="color" value="#FFFFFF" />
-      <br />
-      <br />
-
-      <label for="fontSizeInput">Tamanho da fonte</label>
-      <br />
-      <input id="fontSizeInput" type="number" value="12" />
-      <br />
-      <br />
-
-      <label for="textBorderColorSelector">Cor da borda</label>
-      <br />
-      <input id="textBorderColorSelector" type="color" value="#000000" />
-      <br />
-      <br />
-
-      <label for="textBorderSizeInput">Tamanho da borda</label>
-      <br />
-      <input id="textBorderSizeInput" type="number" value="1.5" />
-      <br />
-      <br />
-
-      <label for="textPaddingInput">Distanciamento dos textos</label>
-      <br />
-      <input id="textPaddingInput" type="number" value="15" />
-      <br />
-      <br />
-
-      <label for="textPosition">Posição do texto</label>
-      <br />
-      <select id="textPosition">
-        <option value="bottomRight">Canto inferior direito</option>
-        <option value="bottomLeft">Canto inferior esquerdo</option>
-        <option value="topRight">Canto superior direito</option>
-        <option value="topLeft">Canto superior esquerdo</option>
-      </select>
-      <br />
-      <br />
-
-      <button type="button" id="saveFormCookiesButton">Salvar estilo</button>
-      <button type="button" id="copyStyleButton">Copiar estilo</button>
-    </div>
-
-    <br />
-    <br />
-
-    <div id="timestampValues" action="">
-      <label for="datetimeInput">Data e hora</label>
-      <br />
-      <input id="datetimeInput" type="datetime-local" />
-      <br />
-      <br />
-
-      <label for="searchBy"
-        >Escolha a forma como deseja escolher um endereço</label
-      >
-      <br />
-      <select id="searchBy">
-        <option value="cep">CEP</option>
-        <option value="map">Mapa</option>
-      </select>
-      <br />
-      <br />
-
-      <div id="cepDisplay" style="display: block">
-        <label for="cep">CEP</label>
-        <br />
-        <input id="cep" type="text" />
-        <button type="button" id="searchCepButton">Buscar CEP</button>
-        <br />
-        <br />
+    <section id="timestampSettings">
+      <div class="section-header">
+        <i class="fa-solid fa-wrench"></i>
+        <h3>CONFIGURAÇÕES DA TIMESTAMP</h3>
       </div>
 
-      <div id="mapDisplay" style="display: none">
-        <div id="map"></div>
-        <br />
-        <button id="chooseLocationButton" type="button">
-          Usar esse endereço
-        </button>
-        <br />
-        <br />
+      <div class="section-content">
+        <div class="inputDiv textareaInput">
+          <label for="importStyleText">Importar estilo</label>
+          <textarea id="importStyleText"></textarea>
+          <br />
+          <button type="button" id="importStyleButton">Importar estilo</button>
+        </div>
+
+        <div class="colorDiv">
+          <div class="inputDiv">
+            <label for="textColorSelector">Cor do texto</label>
+            <input id="textColorSelector" type="color" value="#FFFFFF" />
+          </div>
+
+          <div class="inputDiv">
+            <label for="textBorderColorSelector">Cor da borda</label>
+            <input id="textBorderColorSelector" type="color" value="#000000" />
+          </div>
+        </div>
+
+        <div class="textDiv">
+          <div class="inputDiv">
+            <label for="fontSizeInput">Tamanho da fonte</label>
+            <input id="fontSizeInput" type="number" value="12" />
+          </div>
+
+          <div class="inputDiv">
+            <label for="textBorderSizeInput">Tamanho da borda</label>
+            <input id="textBorderSizeInput" type="number" value="1.5" />
+          </div>
+
+          <div class="inputDiv">
+            <label for="textPaddingInput">Distanciamento dos textos</label>
+            <input id="textPaddingInput" type="number" value="15" />
+          </div>
+
+          <div class="inputDiv">
+            <label for="textPosition">Posição do texto</label>
+
+            <select id="textPosition">
+              <option value="bottomRight">Canto inferior direito</option>
+              <option value="bottomLeft">Canto inferior esquerdo</option>
+              <option value="topRight">Canto superior direito</option>
+              <option value="topLeft">Canto superior esquerdo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" id="saveFormCookiesButton">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Salvar estilo
+          </button>
+          <button type="button" id="copyStyleButton">
+            <i class="fa-solid fa-copy"></i>
+            Copiar estilo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="timestampValues">
+      <div class="section-header">
+        <i class="fa-solid fa-tag"></i>
+        <h3>VALORES DA TIMESTAMP</h3>
       </div>
 
-      <label for="street">Rua</label>
-      <br />
-      <input id="street" type="text" />
-      <br />
-      <br />
+      <div class="section-content">
+        <div class="dateDiv">
+          <div class="inputDiv">
+            <label for="datetimeInput">Data e hora</label>
+            <input id="datetimeInput" type="datetime-local" />
+          </div>
+        </div>
 
-      <label for="district">Bairro</label>
-      <br />
-      <input id="district" type="text" />
-      <br />
-      <br />
+        <div class="addressDiv">
+          <div class="inputDiv">
+            <label for="searchBy"
+              >Escolha a forma como deseja escolher um endereço</label
+            >
+            <select id="searchBy">
+              <option value="cep">CEP</option>
+              <option value="map" selected>Mapa</option>
+            </select>
+          </div>
 
-      <label for="city">Cidade</label>
-      <br />
-      <input id="city" type="text" />
-      <br />
-      <br />
+          <div id="cepDisplay">
+            <div class="inputDiv">
+              <label for="cep">CEP</label>
+              <input id="cep" type="text" />
+              <br />
+              <button type="button" id="searchCepButton">Buscar CEP</button>
+            </div>
+          </div>
 
-      <label for="state">Estado</label>
-      <br />
-      <input id="state" type="text" />
-      <br />
-      <br />
+          <div id="mapDisplay">
+            <div id="map"></div>
+            <br />
+            <button id="chooseLocationButton" type="button">
+              <i class="fa-solid fa-check"></i>
+              Confirmar
+            </button>
+          </div>
 
-      <input id="fileSelector" type="file" accept=".png,.jpg,.jpeg" />
-    </div>
+          <div class="textDiv">
+            <div class="inputDiv">
+              <label for="street">Rua</label>
+              <input id="street" type="text" />
+            </div>
+
+            <div class="inputDiv">
+              <label for="district">Bairro</label>
+              <input id="district" type="text" />
+            </div>
+
+            <div class="inputDiv">
+              <label for="city">Cidade</label>
+              <input id="city" type="text" />
+            </div>
+
+            <div class="inputDiv">
+              <label for="state">Estado</label>
+              <input id="state" type="text" />
+            </div>
+          </div>
+        </div>
+
+        <div class="inputDiv file-input">
+          <label for="fileSelector">Escolha a imagem</label>
+          <input id="fileSelector" type="file" accept=".png,.jpg,.jpeg" />
+        </div>
+
+        <div class="buttonDiv">
+          <button type="button" id="generateImageButton">
+            <i class="fa-solid fa-spinner"></i>
+            Gerar imagem
+          </button>
+        </div>
+      </div>
+    </section>
 
     <br />
     <br />
-
-    <button type="button" id="generateImageButton">Gerar imagem</button>
 
     <br />
     <br />
