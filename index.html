@@ -32,7 +32,7 @@
   </head>
   <body>
     <header>
-      <h2>Image Timestamp Generator</h2>
+      <h3>Image Timestamp Generator</h3>
       <i class="fa-solid fa-clock"></i>
     </header>
 
@@ -49,6 +49,8 @@
           <br />
           <button type="button" id="importStyleButton">Importar estilo</button>
         </div>
+
+        <hr />
 
         <div class="colorDiv">
           <div class="inputDiv">
@@ -77,10 +79,11 @@
             <label for="textPaddingInput">Distanciamento dos textos</label>
             <input id="textPaddingInput" type="number" value="15" />
           </div>
+        </div>
 
+        <div class="textDiv">
           <div class="inputDiv">
             <label for="textPosition">Posição do texto</label>
-
             <select id="textPosition">
               <option value="bottomRight">Canto inferior direito</option>
               <option value="bottomLeft">Canto inferior esquerdo</option>
@@ -140,10 +143,12 @@
           <div id="mapDisplay">
             <div id="map"></div>
             <br />
-            <button id="chooseLocationButton" type="button">
-              <i class="fa-solid fa-check"></i>
-              Confirmar
-            </button>
+            <div class="buttonDiv">
+              <button id="chooseLocationButton" type="button">
+                <i class="fa-solid fa-check"></i>
+                Confirmar
+              </button>
+            </div>
           </div>
 
           <div class="textDiv">

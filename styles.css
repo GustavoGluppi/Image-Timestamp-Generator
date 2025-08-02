@@ -9,6 +9,7 @@
   --button-hover-bg-color: #2d4ab4;
   --file-input-bg-color: #087416;
   --file-input-hover-bg-color: #0a861b;
+  --secondary-button-bg-color: #c11b45;
 }
 
 * {
@@ -28,7 +29,7 @@ body {
 }
 
 input {
-  padding: 7px;
+  padding: 0.5em;
   border-radius: 8px;
   background-color: var(--input-bg-color);
   color: var(--font-color) white;
@@ -37,8 +38,8 @@ input {
   cursor: text;
   transition: border-color 0.3s ease;
   outline: none;
-  width: 200px;
-  height: 35px;
+  width: 10em;
+  height: 2.5em;
 }
 
 input:hover {
@@ -46,15 +47,15 @@ input:hover {
 }
 
 input[type="text"] {
-  width: 450px;
+  width: 25em;
 }
 
 input[type="color"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
-  height: 55px;
-  width: 55px;
+  height: 4em;
+  width: 4em;
   background-color: transparent;
   border: none;
   appearance: none;
@@ -71,18 +72,18 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 select {
-  padding: 7px;
+  padding: 0.5em;
   border-radius: 8px;
   background-color: var(--input-bg-color);
   color: var(--font-color);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 0.8em;
   border: 1px solid var(--section-border-color);
   cursor: pointer;
   transition: border-color 0.3s ease;
   outline: none;
-  height: 35px;
-  width: 220px;
+  height: 2.5em;
+  width: 18em;
 }
 
 select:hover {
@@ -90,27 +91,32 @@ select:hover {
 }
 
 textarea {
-  padding: 7px;
+  padding: 1em;
   border-radius: 8px;
   background-color: var(--input-bg-color);
   color: var(--font-color);
   font-weight: 600;
   border: 1px solid var(--section-border-color);
   cursor: text;
-  width: 400px;
-  height: 80px;
+  width: 30em;
+  height: 6em;
   resize: none;
 }
 
 #map {
-  height: 280px;
-  width: 500px;
+  height: 50vh;
+  width: 40vw;
   border: 2px solid var(--button-bg-color);
-  border-radius: 8px;
+  border-radius: 16px;
+  justify-self: center;
 }
 
 #map:focus {
   outline: none;
+}
+
+.mapDisplay button {
+  justify-self: center;
 }
 
 #cepDisplay {
@@ -120,9 +126,9 @@ textarea {
 section {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.8em;
   width: 60vw;
-  margin: 25px 0vw;
+  margin: 1.8em 0vw;
 }
 
 .section-content {
@@ -130,28 +136,28 @@ section {
   flex-direction: column;
   border: 1px solid var(--section-border-color);
   background-color: var(--section-bg-color);
-  padding: 40px 25px;
+  padding: 2em 1em;
   border-radius: 16px;
   flex-wrap: wrap;
-  column-gap: 20px;
+  column-gap: 1em;
   margin-top: 0;
-  row-gap: 30px;
+  row-gap: 1.5em;
   overflow: hidden;
 }
 
 .section-header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1em;
 }
 
 .section-header i {
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 .colorDiv {
   display: flex;
-  gap: 25px;
+  gap: 1.5em;
   justify-content: start;
   flex-wrap: wrap;
 }
@@ -162,27 +168,35 @@ section {
 
 .textDiv {
   display: flex;
-  gap: 25px;
-  justify-content: space-between;
+  gap: 1.5em;
+  justify-content: start;
   flex-wrap: wrap;
+}
+
+.addressDiv .textDiv {
+  justify-content: space-between;
 }
 
 .inputDiv {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.1em;
+}
+
+.inputDiv label {
+  font-size: 0.8em;
 }
 
 button {
-  width: 150px;
-  height: 32px;
+  width: 12em;
+  height: 2.5em;
   border-radius: 8px;
   background-color: var(--button-bg-color);
   color: var(--font-color);
-  font-size: 13px;
+  font-size: 0.8em;
   font-weight: bold;
   border: none;
-  margin-right: 15px;
+  margin-right: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -192,7 +206,7 @@ button:hover {
 }
 
 button i {
-  font-size: 12px;
+  font-size: 0.8em;
 }
 
 .dateDiv {
@@ -203,7 +217,15 @@ button i {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  row-gap: 20px;
+  row-gap: 1.5em;
+}
+
+.addressDiv .buttonDiv {
+  margin-top: 0;
+}
+
+input[type="datetime-local"] {
+  width: 15em;
 }
 
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
@@ -224,12 +246,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 
 .file-input label {
   display: inline-block;
-  padding: 6px 8px;
+  padding: 0.5em 1em;
   background-color: var(--file-input-bg-color);
   color: var(--font-color);
   border-radius: 8px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 0.8em;
   transition: background-color 0.3s ease;
 }
 
@@ -258,8 +280,8 @@ canvas {
 }
 
 span {
-  font-size: 12px;
-  margin-left: 5px;
+  font-size: 0.7em;
+  margin-left: 0.6em;
 }
 
 #selectedText {
@@ -270,18 +292,30 @@ header {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 20px;
+  align-content: center;
+  gap: 1em;
   width: 100%;
-  height: 8vh;
-  padding: 10px 25px 20px;
+  height: 10vh;
+  padding: 0.5em 1em;
   border-bottom: 1px solid var(--section-border-color);
   background-color: var(--section-bg-color);
 }
 
 header i {
-  font-size: 30px;
+  font-size: 1.5em;
 }
 
-.textareaInput {
-  display: none;
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.textareaInput button {
+  background-color: var(--secondary-button-bg-color);
+}
+
+hr {
+  border: 1px solid var(--section-border-color);
+  border-radius: 8px;
 }
