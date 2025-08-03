@@ -1,4 +1,4 @@
-import { reduce, formatDate } from "./utils.js";
+import { reduce, formatDate, showNotification } from "./utils.js";
 import { addTextToCanvas } from "./canvas.js";
 
 function getAddress() {
@@ -122,11 +122,14 @@ function saveFormCookies() {
     document.cookie =
       key + "=" + value + ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/";
   }
+
+  showNotification("Estilo salvo!");
 }
 
 function prepareStyleString() {
   const styleString = document.getElementById("importStyleText").value;
   fillFormWithValuesString(styleString);
+  showNotification("Importado com sucesso!");
 }
 
 function copyStyleString() {
@@ -163,6 +166,8 @@ function copyStyleString() {
     "text/plain": valuesString,
   });
   navigator.clipboard.write([clipboardItem]);
+
+  showNotification("Estilo copiado!");
 }
 
 function toggleSearchByView(e) {

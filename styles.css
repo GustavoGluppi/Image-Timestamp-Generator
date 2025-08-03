@@ -5,11 +5,12 @@
   --section-border-color: #1f1f1f;
   --input-bg-color: #0b0e13;
   --input-hover-border-color: #2c2c2c;
-  --button-bg-color: #193cb8;
+  --button-bg-color: #2d4ab4;
   --button-hover-bg-color: #2d4ab4;
   --file-input-bg-color: #087416;
   --file-input-hover-bg-color: #0a861b;
   --secondary-button-bg-color: #c11b45;
+  --notification-bg-color: #1f3480;
 }
 
 * {
@@ -318,4 +319,27 @@ header i {
 hr {
   border: 1px solid var(--section-border-color);
   border-radius: 8px;
+}
+
+.notification {
+  position: fixed;
+  bottom: 1em;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.notificationText {
+  background-color: var(--notification-bg-color);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  width: 30vw;
+  height: 4em;
+  display: flex;
+  transition: opacity 0.5s ease-out;
+}
+
+.notificationText.show {
+  opacity: 1;
 }

@@ -1,3 +1,7 @@
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export function reduce(numerator, denominator) {
   var gcd = function gcd(a, b) {
     return b ? gcd(b, a % b) : a;
@@ -84,4 +88,20 @@ export function getStateAcronym(state) {
     .toLowerCase();
 
   return statesAcronyms[formatedState] || state;
+}
+
+export async function showNotification(string) {
+  const popup = document.getElementById("notificationText");
+
+  if (popup.classList.contains("show")) {
+    popup.classList.remove("show");
+  }
+
+  popup.innerText = string;
+
+  popup.classList.add("show");
+
+  await sleep(3000);
+
+  popup.classList.remove("show");
 }
