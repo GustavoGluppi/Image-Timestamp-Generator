@@ -1,0 +1,345 @@
+:root {
+  --bg-color: #030405;
+  --font-color: #ffffff;
+  --section-bg-color: #080a0e;
+  --section-border-color: #1f1f1f;
+  --input-bg-color: #0b0e13;
+  --input-hover-border-color: #2c2c2c;
+  --button-bg-color: #2d4ab4;
+  --button-hover-bg-color: #2d4ab4;
+  --file-input-bg-color: #087416;
+  --file-input-hover-bg-color: #0a861b;
+  --secondary-button-bg-color: #c11b45;
+  --notification-bg-color: #1f3480;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: Poppins, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.5em;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  color: var(--font-color) white;
+  font-weight: 600;
+  border: 1px solid var(--section-border-color);
+  cursor: text;
+  transition: border-color 0.3s ease;
+  outline: none;
+  width: 10em;
+  height: 2.5em;
+}
+
+input:hover {
+  border-color: var(--input-hover-border-color);
+}
+
+input[type="text"] {
+  width: 25em;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  height: 4em;
+  width: 4em;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  outline: none;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: 1px solid var(--font-color);
+  border-radius: 100%;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+select {
+  padding: 0.5em;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 0.8em;
+  border: 1px solid var(--section-border-color);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  outline: none;
+  height: 2.5em;
+  width: 18em;
+}
+
+select:hover {
+  border-color: var(--input-hover-border-color);
+}
+
+textarea {
+  padding: 1em;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  color: var(--font-color);
+  font-weight: 600;
+  border: 1px solid var(--section-border-color);
+  cursor: text;
+  width: 30em;
+  height: 6em;
+  resize: none;
+}
+
+#map {
+  height: 50vh;
+  width: 40vw;
+  border: 2px solid var(--button-bg-color);
+  border-radius: 16px;
+  justify-self: center;
+}
+
+#map:focus {
+  outline: none;
+}
+
+.mapDisplay button {
+  justify-self: center;
+}
+
+#cepDisplay {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  width: 60vw;
+  margin: 1.8em 0vw;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--section-border-color);
+  background-color: var(--section-bg-color);
+  padding: 2em 1em;
+  border-radius: 16px;
+  flex-wrap: wrap;
+  column-gap: 1em;
+  margin-top: 0;
+  row-gap: 1.5em;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.section-header i {
+  font-size: 1.2em;
+}
+
+.colorDiv {
+  display: flex;
+  gap: 1.5em;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.colorDiv .inputDiv {
+  align-items: center;
+}
+
+.textDiv {
+  display: flex;
+  gap: 1.5em;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.addressDiv .textDiv {
+  justify-content: space-between;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+.inputDiv label {
+  font-size: 0.8em;
+}
+
+button {
+  width: 12em;
+  height: 2.5em;
+  border-radius: 8px;
+  background-color: var(--button-bg-color);
+  color: var(--font-color);
+  font-size: 0.8em;
+  font-weight: bold;
+  border: none;
+  margin-right: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+button i {
+  font-size: 0.8em;
+}
+
+.dateDiv {
+  display: flex;
+}
+
+.addressDiv {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 1.5em;
+}
+
+.addressDiv .buttonDiv {
+  margin-top: 0;
+}
+
+input[type="datetime-local"] {
+  width: 15em;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+.file-input {
+  display: inline-block;
+}
+
+.file-input input[type="file"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.file-input label {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: var(--file-input-bg-color);
+  color: var(--font-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease;
+}
+
+.file-input label:hover {
+  background-color: var(--file-input-hover-bg-color);
+}
+
+canvas {
+  border: 1px dashed var(--font-color);
+  max-width: 100%;
+}
+
+#canvasResult .section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#downloadLink {
+  display: none;
+}
+
+#imageData {
+  display: none;
+}
+
+span {
+  font-size: 0.7em;
+  margin-left: 0.6em;
+}
+
+#selectedText {
+  display: none;
+}
+
+header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  align-content: center;
+  gap: 1em;
+  width: 100%;
+  height: 10vh;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid var(--section-border-color);
+  background-color: var(--section-bg-color);
+}
+
+header i {
+  font-size: 1.5em;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.textareaInput button {
+  background-color: var(--secondary-button-bg-color);
+}
+
+hr {
+  border: 1px solid var(--section-border-color);
+  border-radius: 8px;
+}
+
+.notification {
+  position: fixed;
+  bottom: 1em;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.notificationText {
+  background-color: var(--notification-bg-color);
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  width: 30vw;
+  height: 4em;
+  display: flex;
+  transition: opacity 0.5s ease-out;
+}
+
+.notificationText.show {
+  opacity: 1;
+}
