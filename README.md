@@ -6,12 +6,16 @@ This tool allows you to easily add customizable timestamps to your images, with 
 
 Available at: [faketimestamp.squareweb.app](https://faketimestamp.squareweb.app/)
 
+---
+
 🚀 **Features**
 
 * Customizable timestamps with editable date, time, and text properties.
 * Text customization options (size, color, border, etc.).
 * Caching system for easy reuse of settings.
 * Shareable custom styles via a unique string for easy collaboration.
+
+---
 
 ⚡ **Usage**
 
@@ -21,6 +25,8 @@ Available at: [faketimestamp.squareweb.app](https://faketimestamp.squareweb.app/
 4. Upload your image.
 5. Generate the preview of your image.
 6. Download the image using the provided button.
+
+---
 
 🔧 **Supported Features**
 
