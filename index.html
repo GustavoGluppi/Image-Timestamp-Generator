@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -167,9 +167,25 @@
               <input id="city" type="text" />
             </div>
 
-            <div class="inputDiv">
-              <label for="state">Estado</label>
-              <input id="state" type="text" />
+            <div style="display: flex">
+              <div class="inputDiv">
+                <label for="state">Estado</label>
+                <input id="state" type="text" />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding-left: 1em;
+                "
+              >
+                <div class="inputDiv checkboxDiv">
+                  <label for="abbreviateState">Abreviar Estado?</label>
+                  <input id="abbreviateState" type="checkbox" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -197,9 +213,7 @@
 
       <div class="section-content">
         <div class="canvaDiv">
-          <canvas id="canvas-image" height="800px" width="450px">
-            Ocorreu um erro!
-          </canvas>
+          <canvas id="canvas-image" height="800px" width="450px"></canvas>
         </div>
 
         <button type="button" id="downloadLink" download="image.png">

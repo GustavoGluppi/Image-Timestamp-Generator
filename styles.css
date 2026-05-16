@@ -72,6 +72,12 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+}
+
 select {
   padding: 0.5em;
   border-radius: 8px;
@@ -186,6 +192,10 @@ section {
 
 .inputDiv label {
   font-size: 0.8em;
+}
+
+.checkboxDiv {
+  align-items: center;
 }
 
 button {

@@ -1,4 +1,10 @@
-import { reduce, formatDate, showNotification } from "./utils.js";
+import {
+  reduce,
+  formatDate,
+  showNotification,
+  getStateAcronym,
+  getFullStateName,
+} from "./utils.js";
 import { addTextToCanvas } from "./canvas.js";
 
 function getAddress() {
@@ -7,12 +13,16 @@ function getAddress() {
 
   if (!cep) return;
 
+  const abbreviateState = document.getElementById("abbreviateState").checked;
+
   fetch(`https://viacep.com.br/ws/${cep}/json/`).then((resp) => {
     resp.json().then((data) => {
       document.getElementById("street").value = data.logradouro;
       document.getElementById("district").value = data.bairro;
       document.getElementById("city").value = data.localidade;
-      document.getElementById("state").value = data.estado;
+      document.getElementById("state").value = abbreviateState
+        ? getStateAcronym(data.estado)
+        : data.estado;
     });
   });
 }
@@ -37,8 +47,14 @@ function createImage() {
         const proportionalWidth =
           Math.fround(800 / proporsion[1]) * proporsion[0];
 
-        canvas.width = proportionalWidth;
-        canvas.height = 800;
+        const scale = 2; // Setting a higher scale on internal canvas to bypass blurred text on high DPI screens
+
+        canvas.width = proportionalWidth * scale;
+        canvas.height = 800 * scale;
+
+        // Set the CSS size to the original dimensions
+        canvas.style.width = proportionalWidth + "px";
+        canvas.style.height = "800px";
 
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
@@ -67,7 +83,7 @@ function createImage() {
           ctx,
           [date, street, district, city, state],
           document.getElementById("textPaddingInput").value || 15,
-          textPosition
+          textPosition,
         );
       };
 
@@ -208,6 +224,18 @@ function toggleInputSpamValue(e) {
   }
 }
 
+function toggleAbbreviateState(e) {
+  const stateField = document.getElementById("state");
+
+  if (e.target.checked) {
+    return (stateField.value = getStateAcronym(stateField.value));
+  }
+
+  console.log(getFullStateName(stateField.value));
+
+  stateField.value = getFullStateName(stateField.value);
+}
+
 document
   .getElementById("importStyleButton")
   .addEventListener("click", prepareStyleString);
@@ -232,5 +260,8 @@ document
 document
   .getElementById("fileSelector")
   .addEventListener("change", toggleInputSpamValue);
+document
+  .getElementById("abbreviateState")
+  .addEventListener("change", toggleAbbreviateState);
 
 window.onload = fillFormWithValuesString(document.cookie);
