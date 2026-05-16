@@ -90,6 +90,14 @@ export function getStateAcronym(state) {
   return statesAcronyms[formatedState] || state;
 }
 
+export function getFullStateName(acronym) {
+  const fullStateName = Object.keys(statesAcronyms).find(
+    (key) => statesAcronyms[key] === String(acronym).toUpperCase(),
+  );
+
+  return capitalizeText(fullStateName) || acronym;
+}
+
 export async function showNotification(string) {
   const popup = document.getElementById("notificationText");
 
@@ -104,4 +112,13 @@ export async function showNotification(string) {
   await sleep(3000);
 
   popup.classList.remove("show");
+}
+
+function capitalizeText(str) {
+  if (!str) return "";
+
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }

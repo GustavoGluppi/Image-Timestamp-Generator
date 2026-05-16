@@ -37,10 +37,14 @@ async function chooseLocation() {
 
   const data = await response.json();
 
+  const abbreviateState = document.getElementById("abbreviateState").checked;
+
   document.getElementById("street").value = data.address.road;
   document.getElementById("district").value = data.address.suburb;
   document.getElementById("city").value = data.address.city;
-  document.getElementById("state").value = getStateAcronym(data.address.state);
+  document.getElementById("state").value = abbreviateState
+    ? getStateAcronym(data.address.state)
+    : data.address.state;
 }
 
 map.on("click", onMapClick);
